@@ -89,7 +89,7 @@ namespace HoaTuoi.Models.DAO
             SQLiteConnection conn = new SQLiteConnection(conString);
             conn.Open();
             SQLiteCommand cmd = new SQLiteCommand(conn);
-            cmd.CommandText = "select Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap,sum(so_luong) " +
+            cmd.CommandText = "select Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap,sum(so_luong) as sl " +
                                 "from Phieu_Nhap_Hang join Loai_Qua on Phieu_Nhap_Hang.id_loai = Loai_Qua.id_loai " +
                                 "group by Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap " +
                                 "order by ngay_nhap asc";
@@ -101,7 +101,7 @@ namespace HoaTuoi.Models.DAO
                 pn.id_loai = rd["id_loai"].ToString();
                 pn.ten_loai = rd["ten_loai"].ToString();
                 pn.ngay_nhap = rd["ngay_nhap"].ToString();
-                pn.so_luong = rd["so_luong"].ToString();
+                pn.so_luong = rd["sl"].ToString();
                 pn.gia_nhap = rd["gia_nhap"].ToString();
                 li.Add(pn);
             }
