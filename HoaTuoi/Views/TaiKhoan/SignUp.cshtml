@@ -1,0 +1,44 @@
+﻿@model HoaTuoi.Models.EF.TaiKhoan
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="feed" >
+    <div class="feedback" style="margin-bottom: 20px; padding: 0px 0px 80px 0px;">
+        <h1>Login</h1>
+        @using (Html.BeginForm("SignUp", "TaiKhoan", FormMethod.Post))
+        {
+            <div>
+                <span><label>Tên đăng nhập</label></span>
+                <span><input type="text" name="TenDangNhap" /></span>
+            </div>
+            <div>
+                <span><label>Mật khẩu</label></span>
+                <span><input type="password" name="MatKhau" /></span>
+            </div>
+            <div>
+                <span><label>Họ tên</label></span>
+                <span><input type="text" name="TenNguoiDung" /></span>
+            </div>
+            <div>
+                <span><label>Địa chỉ</label></span>
+                <span><input type="text" name="DiaChi" /></span>
+            </div>
+            <div>
+                <span><label>Điện thoại</label></span>
+                <span><input type="text" name="DienThoai" /></span>
+            </div>
+            <div>
+                <span><label>Email</label></span>
+                <span><input type="text" name="Email" /></span>
+            </div>
+            <div>
+                <span><input type="submit" value="Đăng ký" /></span>
+            </div>
+        }
+    </div>
+    <div class="clear"></div>
+</div>
+
+

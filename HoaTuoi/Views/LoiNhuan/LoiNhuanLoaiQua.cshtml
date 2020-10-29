@@ -1,0 +1,51 @@
+﻿@model List<HoaTuoi.Models.EF.LoiNhuan>
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    table {
+        width: 100%;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        align-content: center;
+    }
+
+    th {
+        height: 50px;
+    }
+</style>
+<table>
+    Danh sách loại quả
+    <thead>
+        <tr>
+            <th>ID Loại</th>
+            <th>Tên Loại</th>
+            <th>Ngày Xuất</th>
+            <th>Số Lượng( Quả)</th>
+            <th>Giá Nhập( VNĐ)</th>
+            <th>Giá Xuất( VNĐ)</th>
+            <th>Tổng Giá Vốn( VNĐ)</th>
+            <th>Tổng Tiền Xuất( VNĐ)</th>
+            <th>Lợi Nhuận( VNĐ)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id_loai</td>
+                <td>@item.ten_loai</td>
+                <td>@item.ngay_xuat</td>
+                <td>@item.so_luong</td>
+                <td>@item.gia_nhap</td>
+                <td>@item.gia_xuat</td>
+                <td>@item.tong_tien_nhap</td>
+                <td>@item.tong_tien_xuat</td>
+                <td>@item.tien</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

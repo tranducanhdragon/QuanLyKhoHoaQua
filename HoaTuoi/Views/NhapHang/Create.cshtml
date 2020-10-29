@@ -1,0 +1,70 @@
+﻿@model HoaTuoi.Models.EF.PhieuNhapHang
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .text-box {
+        margin: 10px 0 0 0;
+        width: 50px;
+    }
+    #nn {
+        width: 60%;
+    }
+    #id_loai{
+        width: 60%;
+        height: 30px;
+    }
+    #so_luong{
+        width: 60%;
+        height: 30px;
+    }
+</style>
+<div class="main-body">
+    <div class="feed">
+        <div class="feedback" style="display: block; margin-bottom: 20px; padding: 0px 0px 80px 0px;">
+            @using (Html.BeginForm("Create", "NhapHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                <div style="display: inline-flex;">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div>
+                        Ngày Nhập:
+                        <div>
+                            <input type="datetime-local" id="nn" name="ngay_nhap">
+                        </div>
+                        Loại Quả:
+                        <div>
+                            @Html.DropDownListFor(model => model.id_loai, ViewBag.ddloai as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.id_loai, "", new { @class = "text-danger" })
+                        </div>
+                        Số Lượng( Quả):
+                        <div>
+                            @Html.EditorFor(model => model.so_luong, new { htmlAttributes = new { @type = "number", @min = "0", @step = "1", @value = "0" } })
+                            @Html.ValidationMessageFor(model => model.so_luong, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div>
+                        ID Cơ Sở:
+                        <div>
+                            @Html.TextBoxFor(model => model.id_cssx, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.id_cssx, "", new { @class = "text-danger" })
+                        </div>
+                        Giá Nhập( VNĐ):
+                        <div>
+                            @Html.TextBoxFor(model => model.gia_nhap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.gia_nhap, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <input type="submit" value="Tạo" class="btn btn-default" />
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

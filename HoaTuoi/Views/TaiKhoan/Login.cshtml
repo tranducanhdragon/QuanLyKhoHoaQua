@@ -1,0 +1,76 @@
+﻿@model HoaTuoi.Models.EF.TaiKhoan
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Kho Hoa Quả</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/Assets/Admin/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/Assets/Admin/css/slider-styles.css" type="text/css" media="all" />
+    <script src="/Assets/Admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/js/slider.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+    <style>
+        .wrap {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            margin-top: -15px;
+            margin-left: -25px;
+            width: 100px;
+            height: 100px;
+        }
+        ul {
+            display: inline-flex;
+        }
+        li {
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="feed">
+            <div class="feedback">
+                @using (Html.BeginForm("Login", "TaiKhoan", FormMethod.Post))
+                {
+                    <div>
+                        <span><label>Tên đăng nhập</label></span>
+                        <span><input type="text" name="userName" style="width: 150%;"/></span>
+                    </div>
+                    <div>
+                        <span><label>Mật khẩu</label></span>
+                        <span><input type="password" name="passWord" style="width: 150%;" /></span>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><span><input type="submit" value="Đăng nhập" /></span></li>
+                            <li><span><input type="button" id="btnDangKy" value="Đăng ký" /></span></li>
+                        </ul>
+                        
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                }
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    document.getElementById('btnDangKy').click(function () {
+        $.get("/TaiKhoan/SignUp",
+            function (data, status) {
+                alert(status);
+            }
+        )
+    })
+</script>

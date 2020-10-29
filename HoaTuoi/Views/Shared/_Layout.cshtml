@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Kho Hoa Quả</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/Assets/Admin/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/Assets/Admin/css/slider-styles.css" type="text/css" media="all" />
+    <script src="/Assets/Admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/js/slider.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            @*<div class="logo"><a href="/Home/Index"><img src="/Assets/Admin/images/logo.png" alt="hoatuoiStore" /></a></div>*@
+            <div class="nav" style="padding: 20px 30px 20px 0;">
+                <ul class="nav nav-pills">
+                    @if (Session["TaiKhoanSession"] != null)
+                    {
+                        <li style="padding: 10px;"><a href="/NhapHang/Index">Nhập Hàng</a></li>
+                        <li style="padding: 10px;"><a href="/XuatHang/Index">Xuất Hàng</a></li>
+                        <li style="padding: 10px;"><a href="/TongKetKho/Index">Tổng Kết Kho</a></li>
+                        <li style="padding: 10px;"><a href="/LoiNhuan/Index">Lợi Nhuận</a></li>
+                        <li style="padding: 10px;"><a href="/TaiKhoan/EndSession">Logout</a></li>
+                    }                  
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        @RenderBody()
+    </div>
+    <script>
+			$('#slider').coinslider();
+    </script>
+
+</body>
+</html>
+<script type="text/javascript" src="~/Assets/Admin/js/MenuActiveLi.js"></script>
+<script type="text/javascript" src="~/Assets/Admin/js/Ajax/CartController.js"></script>

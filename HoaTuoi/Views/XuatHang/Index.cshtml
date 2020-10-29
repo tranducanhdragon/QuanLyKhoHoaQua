@@ -1,0 +1,59 @@
+﻿@model List<HoaTuoi.Models.EF.PhieuXuatHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        width: 350%;
+        margin-left: 35px;
+    }
+    h1 {
+        margin-left: 30px;
+    }
+    table, th, td {
+        border: 1px solid black;
+        align-content: center;
+    }
+
+    th {
+        height: 50px;
+    }
+</style>
+<div class="feed">
+    <div class="feedback" style="display:block; margin-bottom: 20px; padding: 0px 0px 80px 0px;">
+        <h1>Danh Sách Phiếu Xuất</h1>
+        <h1><a href="/XuatHang/Create">Thêm Phiếu Xuất</a></h1>
+        <table>
+            <thead>
+                <tr>
+                    @*<th>ID Phiếu</th>
+                    <th>ID Cửa Hàng</th>*@
+                    <th>Ngày Xuất</th>
+                    <th>Giá Xuất( VNĐ)</th>
+                    <th>Số Lượng( Quả)</th>
+                    <th>Tên Loại</th>
+                    <th>Sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>@item.id_phieu_xuat_hang</td>
+                        <td>@item.id_cua_hang</td>*@
+                        <td>@item.ngay_xuat</td>
+                        <td>@item.gia_xuat</td>
+                        <td>@item.so_luong</td>
+                        <td>@item.ten_loai</td>
+                        <td><a href="/XuatHang/Edit/@item.id_phieu_xuat_hang">Sửa</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="clear"></div>
+
+</div>
