@@ -89,7 +89,7 @@ namespace HoaTuoi.Models.DAO
             SQLiteConnection conn = new SQLiteConnection(conString);
             conn.Open();
             SQLiteCommand cmd = new SQLiteCommand(conn);
-            cmd.CommandText = "select Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap,so_luong " +
+            cmd.CommandText = "select Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap,sum(so_luong) " +
                                 "from Phieu_Nhap_Hang join Loai_Qua on Phieu_Nhap_Hang.id_loai = Loai_Qua.id_loai " +
                                 "group by Phieu_Nhap_Hang.id_loai,ten_loai,gia_nhap,ngay_nhap " +
                                 "order by ngay_nhap asc";
